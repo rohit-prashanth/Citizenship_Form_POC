@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% extends 'usernavbar.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Citizenship App!</title>
+</head>
+<body>
+
+<div class="container" style="margin-top: 5px;">
+    <center>
+        {% if messages %}
+            {% for msg in messages %}
+                <span style="color: aquamarine;">
+                    {{ msg }}
+                </span>
+            {% endfor %}
+        {% endif %}
+    </center>
+
+     <div class="row">
+        <div class="col-8" style="text-align: center;">
+            <h3>
+                Hello {{ request.user|capfirst }}
+            </h3>
+
+        </div>
+        <div class="col-4" style="text-align: right; ">
+            <a href="{% url 'logoutuser' %}">
+                <input type="button" class="btn btn-light" value="Logout">
+            </a>
+        </div>
+      </div>
+
+
+
+</div>
+
+</body>
+</html>
+{% endblock %}
